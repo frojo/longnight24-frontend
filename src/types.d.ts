@@ -3,7 +3,6 @@ export interface Message {
     data: GameState;
 }
 
-
 export interface GameState {
     party?: Pokemon[];
     // todo: party can't be larger than 6 pokemon

@@ -1,20 +1,25 @@
-import { Pokemon } from './types'
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './Root.css'
+import { Pokemon, Message } from "./types";
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./Root.css";
 
 const MOCK_PARTY: Pokemon[] = [
-  {id: 1, otid: 1, speciesName: "Cyndaquil", name: "Cyndaquil", level: 5},
-  {id: 2, otid: 2, speciesName: "Cubone", name: "son", level: 14},
-  {id: 3, otid: 3, speciesName: "Gengar", name: "BOO!", level: 69},
-  {id: 4, otid: 4, speciesName: "Bidoof", name: "bidoof1", level: 99},
-]
+  { id: 1, otid: 1, speciesName: "Cyndaquil", name: "Cyndaquil", level: 5 },
+  { id: 2, otid: 2, speciesName: "Cubone", name: "son", level: 14 },
+  { id: 3, otid: 3, speciesName: "Gengar", name: "BOO!", level: 69 },
+  { id: 4, otid: 4, speciesName: "Bidoof", name: "bidoof1", level: 99 },
+];
 
-console.log(JSON.stringify(MOCK_PARTY))
+const test_data: Message = {
+  type: "game_state",
+  data: { party: MOCK_PARTY },
+};
+
+console.log(JSON.stringify(test_data));
 
 function Root() {
-  const [party, setParty] = useState(MOCK_PARTY)
+  const [party, setParty] = useState(MOCK_PARTY);
 
   return (
     <>
@@ -25,7 +30,7 @@ function Root() {
         </div>
       ))}
     </>
-  )
+  );
 }
 
-export default Root
+export default Root;
