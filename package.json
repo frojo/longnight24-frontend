@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --port 8080",
+    "pubsub": "./test/twitch-ext-pubsub-simulator/test.js -f ./test/test_data.json -v -r",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+require('dotenv').config()
 const yargs = require("yargs");
 const fs = require("fs");
 const path = require("path");
@@ -7,6 +8,7 @@ const fetch = require("node-fetch");
 const { Buffer } = require("buffer");
 const JWT = require("jsonwebtoken");
 const StringDecoder = require("string_decoder").StringDecoder;
+
 
 const argv = yargs
   .usage("Usage: $0 [options]")
@@ -22,21 +24,22 @@ const argv = yargs
   .alias("v", "verbose")
   .alias("r", "repeat")
   .boolean("r")
-  .describe("r", "Whether to endlessly repeat the data")
-  .describe("channel", "The channel to send the data to")
-  .default("channel", "173220974")
-  .describe("owner", "The extension owner")
-  .default("owner", "173220974")
-  .demand("owner")
-  .describe("extension", "The extension client id")
-  .describe("secret", "The extension secret, base64 encoded")
-  .demand("secret").argv;
+  .describe("r", "Whether to endlessly repeat the data").argv
+  // .describe("channel", "The channel to send the data to")
+  // .default("channel", "173220974")
+  // .describe("owner", "The extension owner")
+  // .default("owner", "173220974")
+  // .demand("owner")
+  // .describe("extension", "The extension client id")
+  // .describe("secret", "The extension secret, base64 encoded")
+  // .demand("secret").argv;
+
 
 // these must all be strings (otherwise the JWT will be invalid)
-const extensionOwner = argv.owner;
-const extensionClientId = argv.extension;
-const base64Secret = argv.secret;
-const targetChannel = "" + argv.channel;
+const extensionOwner = process.env.EXTENSION_OWNER;
+const extensionClientId = process.env.EXTENSION_CLIENT_ID;
+const base64Secret = process.env.EXTENSION_SECRET;
+const targetChannel = "" + process.env.EXTENSION_OWNER;
 const messageInterval = argv.interval;
 const sourceFile = argv.file;
 
