@@ -1,5 +1,5 @@
 import { Pokemon, Message } from "./types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./Root.css";
@@ -20,6 +20,25 @@ console.log(JSON.stringify(test_data));
 
 function Root() {
   const [party, setParty] = useState(MOCK_PARTY);
+
+  useEffect(() => {
+    window.Twitch.ext.listen(
+			"broadcast",
+			(target: string, contentType: string, message: string) => {
+				// verify content type
+				if (contentType !== "application/json") {
+					console.debug(`Unexpected contentType "${contentType}"`);
+					return;
+				}
+
+				const m: Message = JSON.parse(message)
+        console.log("recieved!")
+        console.log(m)
+			},
+		);
+
+
+  })
 
   return (
     <>
