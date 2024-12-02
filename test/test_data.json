@@ -16,6 +16,55 @@
           "speciesName": "Cubone",
           "name": "son",
           "level": 14
+        }
+      ]
+    }
+  },
+  {
+    "type": "game_state",
+    "data": {
+      "party": [
+        {
+          "id": 1,
+          "otid": 1,
+          "speciesName": "Cyndaquil",
+          "name": "Cyndaquil",
+          "level": 5
+        },
+        {
+          "id": 2,
+          "otid": 2,
+          "speciesName": "Cubone",
+          "name": "son",
+          "level": 14
+        },
+        {
+          "id": 3,
+          "otid": 3,
+          "speciesName": "Gengar",
+          "name": "BOO!",
+          "level": 69
+        }
+      ]
+    }
+  },
+  {
+    "type": "game_state",
+    "data": {
+      "party": [
+        {
+          "id": 1,
+          "otid": 1,
+          "speciesName": "Cyndaquil",
+          "name": "Cyndaquil",
+          "level": 5
+        },
+        {
+          "id": 2,
+          "otid": 2,
+          "speciesName": "Cubone",
+          "name": "son",
+          "level": 14
         },
         {
           "id": 3,

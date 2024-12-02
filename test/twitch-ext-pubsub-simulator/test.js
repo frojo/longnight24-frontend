@@ -98,6 +98,7 @@ const promise = new Promise((resolve, reject) => {
 
             if (argv.v) {
               console.log(`Sending payload ${serialized}`);
+              console.log(`with client id ${extensionClientId}`);
             }
             // do the request
             fetch(`https://api.twitch.tv/helix/extensions/pubsub`, {
@@ -112,6 +113,7 @@ const promise = new Promise((resolve, reject) => {
             }).then(res => {
               if (argv.v) {
                 console.log(`statusCode: ${res.status}`);
+                console.log(`res: ${res}`);
               }
               if (!res.ok) {
                 res.text().then(text => {
